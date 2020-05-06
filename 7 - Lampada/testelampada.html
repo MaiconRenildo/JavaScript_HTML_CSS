@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <style>
+        #area{
+            width: 169px;
+            margin: auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+            padding-top: 5px;
+            background-color: blue;
+            margin-top: 70px;
+            display: block;
+            box-shadow: 2px 3px 20px black;
+        }
+        h1{
+            text-align: center;
+            text-shadow: 3px 3px 10px white;
+        }
+    </style>
+<body>
+    
+    <div id='area'> 
+        <h1>Teste da Lampada</h1>
+        <img id='lampada' src="lampada-apagada.jpg" 
+        onclick="verificar('lampada-quebrada')" 
+        onmouseenter="verificar('lampada-acesa')"
+        onmouseout="verificar('lampada-apagada')" >    
+    </div>
+
+    
+</body>
+
+    <script>
+        var num=1
+        var lampada=document.getElementById('lampada')
+        function verificar(entrada){
+            if(entrada=='lampada-quebrada'){
+                lampada.src=entrada+'.jpg' 
+                num=0
+            }
+            if(num==1){
+                lampada.src=entrada+'.jpg' 
+            }
+            
+        }
+    </script>
+</html>
