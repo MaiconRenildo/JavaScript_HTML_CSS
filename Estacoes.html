@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descubra a estação do ano</h1>
+    <input type="button" value="Informe o mês aqui" onclick="carregar()"> 
+    
+    <div id="res">
+        <p>Clique no Botão acima para informar o mês</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var n1=String(window.prompt('Digite o mês por extenso(ex.setembro) ').toUpperCase())
+        
+        switch(n1){
+            case 'JANEIRO': case 'FEVEREIRO': case 'MARÇO' : 
+            res.innerHTML=`<p><span style='color:green'> >>> </span><strong> VERÃO </strong></p>`
+            break;
+
+            case 'ABRIL': case 'MAIO': case 'JUNHO':
+            res.innerHTML=`<p><span style='color:green'> >>> </span><strong> OUTONO </strong></p>`
+            break;
+
+            case 'JULHO': case'AGOSTO': case 'SETEMBRO': 
+            res.innerHTML=`<p><span style='color:green'> >>> </span><strong> INVERNO </strong></p>`
+            break;
+
+            case 'OUTUBRO': case 'NOVEMBRO': case 'DEZEMBRO':
+            res.innerHTML+=`<p><span style='color:green'> >>> </span><strong> PRIMAVERA </strong></p>`
+            break
+
+            default:
+            res.innerHTML=`<p><span style='color:red'>OPÇÃO INVÁLIDA!</span> </p>`
+            break
+        }   
+    }
+</script>
+</html>

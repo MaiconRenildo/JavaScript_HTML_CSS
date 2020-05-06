@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de anos bissextos</title>
+    <style>
+        #botao{
+            padding: 25px;    
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <input type="button" value="Verificar" id="botao" onclick="verificar()">
+    <p id="res">Informe um ano para saber se ele é bissexto.</p>
+</body>
+    <script>
+        function verificar(){
+            var res=document.getElementById('res')
+            var ano=[]
+            ano=window.prompt('Insira o ano que você deseja verificar')
+            if(ano.length=='' || isNaN(ano)){
+                window.alert('Erro!! Insira o ano!')
+            }else{
+                var tamanho=ano.length
+                if(ano[tamanho-1]==0 && ano[tamanho-2]==0){
+                    if((ano%400)==0){
+                        res.innerHTML=`<h2>Analisando o ano de ${ano}...</h2>`
+                        res.innerHTML+=`<p> O ano de ${ano} <span style="background-color:green"> É BISSEXTO </span>✔️</p>`
+                    }else{
+                        res.innerHTML=`<h2>Analisando o ano de ${ano}...</h2>`  
+                        res.innerHTML+=`<p>O ano de ${ano} <span style='background-color:red'> NÃO É BISSEXTO </span>❌</p>`
+                    }
+                }else{
+                    if((ano%4)==0){
+                        res.innerHTML=`<h2>Analisando o ano de ${ano}...</h2>`
+                        res.innerHTML+=`<p>O ano de ${ano} <span style="background-color:green"> É BISSEXTO </span>✔️</p>`
+                    }else{
+                        res.innerHTML=`<h2>Analisando o ano de ${ano}...</h2>`
+                        res.innerHTML+=`<p>O ano de ${ano}  <span style="background-color:red"> NÃO É BISSEXTO </span>❌</p>`
+                    }
+                }                 
+            }
+        }
+    </script>
+</html>

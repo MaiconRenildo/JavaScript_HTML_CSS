@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Média</title>
+    <style>
+        #botao{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do Aluno V1.0</h1>
+    <input type="button" value="Calcular Média" id="botao" onclick="Verificar()">
+    <p id="Resultado">O Resultado vai aparecer aqui...</p>
+</body>
+    <script>
+        function Verificar(){
+        var nome=window.prompt('Digite seu nome: ') 
+        var nota1=window.prompt(`Qual foi a primeira nota de ${nome}`)
+        var nota2=window.prompt(`Alem de ${nota1}, qual foi a outra nota de ${nome}?`)
+        alert(`${typeof(nota1)}`)
+       
+        if(isNaN(nota1) || isNaN(nota2) || nota1.length=='' || nota2.length=='' ||nome==''){
+            alert('Erro!! Preencha todos os campos corretamente!')
+        }else{
+            nota1=Number(nota1)
+            nota2=Number(nota2)             
+            var media=(nota1 + nota2)/2
+            var res=document.getElementById('Resultado')
+            res.innerHTML=`Calculando a média de <mark>${nome}</mark>...`
+            res.innerHTML+=`<p>As notas obtidas foram <mark>${nota1}</mark> e <mark>${nota2}</mark></p>`
+            res.innerHTML+=`A média é <mark>${media}</mark>` 
+        }
+    }    
+    </script>
+</html>

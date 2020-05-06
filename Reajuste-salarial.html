@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <input type="button" value="Reajustar Salário" id='botao' onclick="contar()">
+    <p id="res">Clique no Botão acima para iniciar</p>
+</body>
+    <script>
+        function contar(){
+        var res=document.getElementById('res')
+        var nome=window.prompt('Nome do funcionário:')
+        if(nome==''){
+            alert('ERRO!! Insira o nome do funcionário!')
+        }else{
+            var valor=window.prompt(`Qual o salário de ${nome}?`)
+            var reajuste=window.prompt(`O salário de ${nome} será reajustado em qual porcentagem?`)
+            if(valor.length=='' || reajuste.length=='' ||isNaN(valor) || isNaN(reajuste)){
+                alert('Todos os campos devem ser preenchidos')
+            }else{
+                valor=Number(valor)
+                reajuste=Number(reajuste)
+                var final=valor+((valor*reajuste)/100)
+                res.innerHTML=`<h2>${nome} recebeu um aumento salarial!</h2>`
+                
+                res.innerHTML+=`<p>O salario atual era ${valor.toLocaleString('pt-BR',{style:'currency', currency:'BRL'})}</p>`
+
+                res.innerHTML+=`Com um aumento de ${reajuste}%, o salário irá aumentar em ${((valor*reajuste)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} no próximo mês`
+
+                res.innerHTML+=`<p>A partir daí ${nome} irá ganhar ${final.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})} </p>` 
+            }  
+        }       
+    }
+    </script>
+</html>

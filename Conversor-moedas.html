@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor monetário</title>
+    <style>
+        #converter{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ -> US$</h1>
+    <input type="button" value="Converter" id='converter' onclick="contar()">
+    <section id='res'>
+        <p>Clique no botão acima para iniciar</p>
+    </section>
+</body>
+    <script>
+        function contar(){
+            var res=document.getElementById('res')
+            var dolar=window.prompt('Qual o valor do Dólar hoje?')
+            var real=window.prompt('Quantos R$ você tem na carteira?')
+            if(isNaN(dolar) || isNaN(real) || dolar.length=='' || real.length==''){
+                alert( 'ERRO!! Preencha os campos corretamente!')
+            }else{
+                dolar=Number(dolar)
+                real=Number(real)
+                var resposta=real/dolar
+                res.innerHTML=`<p>Você pode comprar ${resposta.toLocaleString('en-US',{style:'currency', currency:'USD'})}</p>`                
+            }
+        }
+    </script>
+</html>

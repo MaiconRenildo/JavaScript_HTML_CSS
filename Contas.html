@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Múltiplas Ações</h1>
+    <input type="button" value="Clique para iniciar" onclick="carregar()"> 
+    
+    <div id="res">
+        <p>Clique no Botão acima para começar</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var n1=window.prompt('Primeiro Valor: ')
+        var n2=window.prompt('Segundo Valor: ')
+
+        if(isNaN(n1) || isNaN(n2) || n1.length=='' || n2.length==''){
+            alert('ERRO!! Entre com um valor')
+        }else{
+            n1=Number(n1)
+            n2=Number(n2)
+            var op=Number(window.prompt(`Valores informados: ${n1} e ${n2}\nO que vamos fazer?\n[1] Somar\n[2] Subtrair\n[3] Multiplicar\n[4] Dividir`))
+            res.innerHTML=`<h2>Calculando...</h2>`
+            switch(op){
+                case 1: 
+                res.innerHTML+=`<p> ${n1} + ${n2} = <strong>${n1+n2}</strong></p>`
+                break;
+
+            case 2:
+                res.innerHTML+=`<p> ${n1} -${n2} = <strong>${n1-n2}</strong></p>`
+                break;
+
+            case 3: 
+                res.innerHTML+=`<p>${n1} x ${n2} = <strong>${n1*n2}</strong></p>`
+                break;
+
+            case 4:
+                res.innerHTML+=`<p>${n1} ÷ ${n2} = <strong>${n1/n2}</strong></p>`
+                break
+
+            default:
+                res.innerHTML+=`<p>OPÇÃO INVÁLIDA! Você digitou ${n1} e ${n2}, mas não sei o que fazer com eles</p>`
+                break
+                }            
+            }
+    }
+</script>
+</html>

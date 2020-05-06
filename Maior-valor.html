@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maior Valor</h1>
+    <input type="button" value="Clique para iniciar" onclick="carregar()"> 
+    <div id="res">
+        <p>O Resultado vai aparecer aqui...</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var n1=window.prompt(`Digite um número`)
+        var n2=window.prompt(`Digite um número`)
+        if(n1.length=='' || n2.length=='' ||isNaN(n1) || isNaN(n2)){
+            alert( 'Erro!! Preencha os campos corretamente!!')
+        }else{
+            n2=Number(n2)
+            n1=Number(n1)
+            if(n1>n2){
+                res.innerHTML=`<p>Analisando os valores ${n1} e ${n2}, o maior valor é <mark>${n1}</mark></strong></p>`  
+            }else if(n1<n2){
+                res.innerHTML=`<p>Analisando os valores ${n1} e ${n2}, o maior valor é <mark>${n2}</mark></strong></p>` 
+            }else{
+                res.innerHTML=`<p>Analisando os valores ${n1} e ${n2}, percebe-se que ambos são <mark>iguais</mark></strong></p>` 
+            }            
+        }
+    }
+</script>
+</html>

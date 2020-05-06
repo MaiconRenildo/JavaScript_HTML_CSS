@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperatura</title>
+    <style>
+        #converter{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de temperatura</h1>
+    <input type="button" value="Converter" id='converter' onclick="contar()">
+    <section id='res'>
+        <p>Clique no botão acima para iniciar</p>
+    </section>
+</body>
+    <script>
+        function contar(){
+            var temp=window.prompt(`Digite a temperatura em graus Celsius (°C) `)
+            var res=document.getElementById('res')
+            if(temp.length=='' || isNaN(temp)){
+                alert('ERRO! Preencha o campo corretamente!')
+            }else{
+                temp=Number(temp)
+                var kelvin=temp+273.15
+                var fah=(temp*(9/5))+32
+                res.innerHTML=''
+                res.innerHTML+=`<p>${kelvin.toLocaleString('pt-BR')} °K (Kelvin)</p>`
+                res.innerHTML+=`<p>${fah.toLocaleString('pt-BR')} °F (Fahrenheit) </p>`                
+            }
+        }
+    </script>
+</html>

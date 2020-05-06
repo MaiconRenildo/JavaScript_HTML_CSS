@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vários Calculos em JS</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vários Calculos em JS</h1>
+    <input type="button" value="Clique para calcular" onclick="calcular()" id="botao">
+    <section id='resultado'>
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+</body>
+    <script>
+        function calcular(){
+            var numero=window.prompt("Digite o número")
+            if(numero.length=='' || isNaN(numero)){
+                alert('ERRO!! Insira um valor!')
+            }else{
+            numero=Number(numero)
+            var res=document.getElementById('resultado')
+            res.innerHTML=`<p>O numero a ser analisado será o <strong>${numero}</strong></p><hr>`
+            res.innerHTML+=`<p>O seu valor absoluto é ${Math.abs(numero)}<p>`
+            res.innerHTML+=`<p>A sua parte inteira é ${Math.trunc(numero)}<p>`
+            res.innerHTML+=`<p>O valor inteiro mais próximo é ${Math.round(numero)}<p>`
+            res.innerHTML+=`<p>A sua Raiz quadrada é ${Math.sqrt(numero)}<p>`
+            res.innerHTML+=`<p>A sua raiz cubica é ${Math.cbrt(numero)}<p>`
+            res.innerHTML+=`<p>O ${numero}<sup>2</sup> vale ${Math.pow(numero,2)}</p>`
+            res.innerHTML+=`<p>O ${numero}<sup>3</sup> vale ${Math.pow(numero,3)}</p>`                
+            }
+
+        }
+    </script>
+</html>

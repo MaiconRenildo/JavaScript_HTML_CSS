@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analisando data e hora do sistema</h1>
+    <input type="button" value="Clique para iniciar" onclick="carregar()"> 
+    <div id="res">
+        <p>O Resultado vai aparecer aqui...</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        //Arrays
+        let meses=['Jan','Fev','Mar', 'Abr', 'Mai', 'Jun','Jul','Ago', 'Set', 'Out','Nov','Dez']
+        let days=['Dom','Seg','Ter', 'Qua','Qui', 'Sex','Sab']
+        var res=document.getElementById('res')
+        var data=new Date()
+        var dia=data.getDate()
+        var mes=data.getMonth()
+        var ano=data.getFullYear()
+        var diasemana=data.getDay()
+        var hora=data.getHours()
+        var min=data.getMinutes()
+        var segundo=data.getSeconds()
+        res.innerHTML=''
+        res.innerHTML+=`<p>Dia : <mark>${dia}</mark></p>`
+        res.innerHTML+=`<p>Mês : <mark>${meses[mes]}</mark></p>`
+        res.innerHTML+=`<p>Ano : <mark>${ano}</mark></p>`
+        res.innerHTML+=`<p>Dia da Semana : <mark>${days[diasemana]}</mark></p>`
+        res.innerHTML+=`<p>Hora : <mark>${hora}</mark></p>`
+        res.innerHTML+=`<p>Minutos : <mark>${min}</mark></p>`
+        res.innerHTML+=`<p>Segundos : <mark>${segundo}</mark></p>`
+    }
+</script>
+</html>

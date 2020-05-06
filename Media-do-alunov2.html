@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do Aluno V2.0</h1>
+    <input type="button" value="Calcular Média" onclick="carregar()"> 
+    <div id="res">
+        <p>O Resultado vai aparecer aqui...</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+    var res=document.getElementById('res')
+    var nome=window.prompt('Digite o nome do Aluno')
+    if(nome==''){
+        alert('Erro!! Informe o nome do aluno!!')
+    }else{
+        var n1=window.prompt(`Digite a primeira nota de ${nome}`)
+        var n2=window.prompt(`Além de ${n1}, qual foi a nota de ${nome} ?`)
+        if(n1.length=='' || n2.length=='' || isNaN(n1) || isNaN(n2)){
+            alert('ERRO!! Preencha os campos corretamente')
+        }else{
+            n1=Number(n1)
+            n2=Number(n2)
+            res.innerHTML=`<p>Calculando a média final de <mark>${nome}</mark></p>`
+            res.innerHTML+=`<p>As notas obtidas foram <mark>${n1}</mark> e <mark>${n2}</mark></p>`
+            var media=(n1+n2)/2
+            res.innerHTML+=`<p>A média final será <mark>${media}</mark></p>`
+            if(media<6){
+                res.innerHTML+=`<p>A mensagem que temos é: <strong style='color:red'>Estude um pouco mais!</strong></p>` 
+            }else{
+                res.innerHTML+=`<p>A mensagem que temos é: <strong style='color:green'>Meus Parabens!!</strong></p>` 
+            }
+        }            
+    }
+}
+</script>
+</html>

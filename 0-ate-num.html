@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Formulário</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+        #res{
+            display: block;
+            border-top: 10px;
+        }
+        #botao{
+            background-color: green;
+            color: white;
+            width: 60px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contando de 0 até número positivo qualquer</h1>
+    <p>Escolha o limite final para a contagem a partir do 0 (digite apenas números postivos)</p>
+    <section>
+    Valor final: <input type="number" id="valor" placeholder="Apenas positivos"> <input type="button" value="Contar" id='botao' onclick="carregar()">   
+    </section>
+    
+    <div id="res">
+        <p>Preencha os dados acima e aperte o botão</p>
+    </div>
+    
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var input=document.getElementById('valor')
+        if(input.value==''){
+            alert('ERRO! Insira um valor!')
+        }else{
+            num=Number(input.value)
+            if(num>=0){
+                var i=0
+                res.innerHTML+=`<h2>Contando de 0 até ${num}<h2>`
+                while(i<=num){
+                    res.innerHTML+=`${i} 👉`
+                    i++
+                }
+            res.innerHTML+=`🏁`   
+            }            
+        }
+        input.value=''
+        input.focus()
+    }
+</script>
+</html>

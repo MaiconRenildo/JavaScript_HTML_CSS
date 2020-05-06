@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolvendo Equações do Segundo Grau</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Equações do Segundo Grau</h1>
+    <input type="button" value="Calcular" id='botao' onclick="contar()">
+    <p id="res">Considerando uma equação no formato <strong>a</strong>x<sup>2</sup> + <strong>b</strong>x+ <strong>c </strong> = 0</p>
+</body>
+    <script>
+        function contar(){
+            var res=document.getElementById('res')
+            var a=window.prompt('Qual o valor de a?')
+            var b=window.prompt('Qual o valor de b?')
+            var c=window.prompt('Qual o valor de c?')
+            var delta=0
+            var x1=0
+            var x2=0
+            
+            if(a.length=='' || b.length=='' || c.length=='' || isNaN(a) ||isNaN(b) || isNaN(c)){
+                alert('ERRO!! Preencha todos os campos corretamente!')
+            }else{
+                a=Number(a)
+                b=Number(b)
+                c=Number(c)
+                if(a==0){
+                    alert('Erro!! O valor de a não pode ser 0')
+                }else if(c==0 && b==0){
+                    alert('Erro!! B e C não podem ser iguais a zero simultâneamente.')
+                }else if(c==0 || b==0){
+                    if(c==0){
+                        if(b<0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>${b} x= 0</strong></p>`
+                        }else if(b>0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>+${b} x= 0</strong></p>`                            
+                        }
+                        x1=0
+                        x2=(-(b))/a
+                        res.innerHTML+=`<p>Esta esquação possui as seguintes raízes: <strong> x1= ${x1} e x2= ${x2}</strong></p>`
+
+
+                    }else if(b==0){
+                        if(c<0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}</strong>x<sup>2</sup><strong>${c}</strong> = 0</p>`
+                        }else if(c>0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}</strong>x<sup>2</sup>+<strong>${c}</strong> = 0</p>`                            
+                        }
+
+                        if(c>0 && a<0 || c<0 && a>0){
+                            x1=-(Math.sqrt(-c/a))
+                            x2=Math.sqrt(-c/a)
+                            res.innerHTML+=`<p>Esta esquação possui as seguintes raízes: <strong> x1= ${x1} e x2= ${x2}</strong></p>`                            
+                        }else{
+                            res.innerHTML+=`<p><strong>Esta esquação não possui raízes reais: </strong></p>`
+                        }
+                    }
+                    
+                }else{
+
+                    if(a<0 || b<0 || c<0){
+
+                        if(b<0 && c<0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>${b}x${c} = 0</strong></p>`   
+                        }else if(b<1){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>${b}x+${c} = 0</strong></p>`    
+                        }else if(c<0){
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>+${b}x${c} = 0 </strong></p>`
+                        }
+                        res.innerHTML+=`<p>O cálculo realizado será <strong>Δ= (${b})<sup>2</sup> - 4 . (${a}) . (${c})</strong></p>`
+
+                        delta=(Math.pow(b,2))-4*a*c 
+                        alert(`${delta}`)
+
+                        res.innerHTML+=`<p>O valor calculado foi <strong><mark>Δ= ${delta}</mark></strong></p>` 
+                        if(delta<0){
+                            res.innerHTML+=`<p><strong>Esta Equação não possui raízes reais</strong><p>`
+                        }else if(delta==0 || delta>0){
+                            x1=(-(b)+(Math.sqrt(delta)))/(2*a)
+                            x2=(-(b)-(Math.sqrt(delta)))/(2*a)
+
+                            res.innerHTML+=`<p>Esta Equação possui as seguintes raízes: <strong>x1=${x1} e x2=${x2}</strong>`
+                        } 
+                        
+                    }else{
+                        res.innerHTML=`<p>A equação atual é <strong>${a}x<sup>2</sup>+${b}x+${c}= 0</strong></p>` 
+
+                        res.innerHTML+=`<p>O cálculo realizado será <strong>Δ=${b}<sup>2</sup> - 4 . ${a} . ${c}</strong></p>`
+
+                        delta=(Math.pow(b,2))-4*a*c 
+                        res.innerHTML+=`<p>O valor calculado foi <strong><mark>Δ= ${delta}</mark></strong></p>` 
+
+                        if(delta<0){
+                            res.innerHTML+=`<p><strong>Esta Equação não possui raízes reais</strong><p>`
+                        }else if(delta==0 || delta>0){
+                            x1=(-b+(Math.sqrt(delta)))/(2*a)
+                            x2=(-b-(Math.sqrt(delta)))/(2*a)
+
+                            res.innerHTML+=`<p>Esta Equação possui as seguintes raízes: <strong>x1=${x1} e x2=${x2}</strong>`
+                        }     
+                    }
+                }
+            }
+        }
+    </script>
+</html>

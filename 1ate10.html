@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando de 1 até 10</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+        #res{
+            display: block;
+            border-top: 10px;
+        }
+
+    </style>
+        
+
+</head>
+<body>
+    <h1>Contando de 1 até 10</h1>
+    <input type="button" value="Clique para iniciar" onclick="carregar()"> 
+    
+    <div id="res">
+        <p>Clique no Botão acima para começar</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var i=1
+        res.innerHTML+=`<h2>Contando de 1 até 10<h2>`
+        while(i<=10){
+            res.innerHTML+=`${i} 👉`
+            i++
+        }
+        res.innerHTML+=`🏁`
+    }
+</script>
+</html>

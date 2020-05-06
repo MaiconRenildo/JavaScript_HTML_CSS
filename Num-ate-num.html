@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Formulário</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+        #res{
+            display: block;
+            border-top: 10px;
+        }
+        #botao{
+            background-color: green;
+            color: white;
+            width: 60px;
+            height: 30px;
+        }
+        section{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contando de 0 até número positivo qualquer</h1>
+    <p>Escolha o valor inicial e o final para a contagem</p>
+
+    <section>
+        Valor Inicial: <input type="number" id="inicio" placeholder="Inicio da Contagem"> 
+    </section>
+
+    <section>
+        Valor Final: <input type="number" id="final" placeholder="Fim da Contagem"> 
+    </section>
+
+    <input type="button" value="Contar" id='botao' onclick="carregar()">   
+    
+    <div id="res">
+        <p>Preencha os dados acima e aperte o botão</p>
+    </div>
+</body>
+<script>
+    function  carregar(){
+        var res=document.getElementById('res')
+        var input1=document.getElementById('inicio')
+        var input2=document.getElementById('final')
+        if(input1.value=='' || input2.value==''){
+            alert('Erro!! Preencha todos os campos!')
+            
+        }else{
+            inicio=Number(input1.value)
+            final=Number(input2.value)
+            if(inicio<final){
+                res.innerHTML=`<h2>Contando de ${inicio} até ${final}</h2>`
+                while(inicio<=final){
+                    res.innerHTML+=`${inicio}👉`
+                    inicio++
+                }
+                res.innerHTML+=`🏁`
+            }else if(inicio>final){
+                res.innerHTML=`<h2>Contando de ${inicio} até ${final}</h2>`
+                while(inicio>=final){
+                    res.innerHTML+=`${inicio}👉`
+                    inicio--
+                }
+                res.innerHTML+=`🏁`
+            }                   
+        }
+        input1.value=''
+        input2.value=''
+        input1.focus()
+    }
+
+</script>
+</html>

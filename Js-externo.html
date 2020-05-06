@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Externo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        h1{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+        #entradas input{    
+            width: 100px;
+            height: 70px;
+        }        
+    </style>
+</head>
+<body>
+    <h1>JavaScript Externo</h1>
+    <section id='entradas'>
+        <input type="button" value="Ação 1" id="b1" onclick="carregar(1)">
+        <input type="button" value="Ação 2" id="b2" onclick="carregar(2)">
+        <input type="button" value="Ação 3" id="b3" onclick="carregar(3)">
+        <input type="button" value="Ação 4" id='b4' onclick="carregar(4)">        
+    </section>
+
+    <div id="res">
+        <p>Aqui vou registrar suas ações com os botões acima</p>
+    </div>
+
+    <script>
+        var res=document.getElementById('res')
+        function carregar(a){
+            switch (a){
+              case 1: res.innerHTML+="<p>Clicou no primeiro botão</p>"
+              break
+              case 2: res.innerHTML+="<p>Clicou no segundo botão</p>" 
+              break
+              case 3: res.innerHTML+="<p>Clicou no terceiro botão</p>"
+              break
+              case 4: res.innerHTML+="<p>Clicou no quarto botão</p>" 
+              break
+            }
+        }
+    </script>
+</body>
+</html>

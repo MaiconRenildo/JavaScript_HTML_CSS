@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" id='botao' onclick="contar()">
+    <p id='res'>Clique no botão acima para analisar a mudança de preço</p>
+</body>
+    <script>
+        function contar(){
+            var res=document.getElementById('res')
+            var valor=window.prompt(`Qual era o preço anterior do produto?`)
+            var pago=window.prompt(`Qual é o preço atual do produto?`)
+            if(valor.length=='' || pago.length=='' || isNaN(valor) || isNaN(pago)){
+                alert('Erro!! Preencha todos os campos')
+            }else{
+                pago=Number(pago)
+                valor=Number(valor)
+                var porcentagem=0
+                res.innerHTML=`<h2>Analisando os valores informados...</h2>`
+
+                res.innerHTML+=`<p>O produto custava ${valor.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} e agora custa ${pago.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p>`
+
+                if(pago>valor){
+                    res.innerHTML+='<p>Hoje o produto está mais caro</p>'
+                    res.innerHTML+=`<p>O preço subiu ${(pago-valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'})} em relação ao preço anterior</p>`
+                    porcentagem=((pago-valor)*100)/valor
+                    res.innerHTML+=`<p>Uma variação de ${porcentagem}% para cima.</p>`
+                }else if(pago<valor){
+                    res.innerHTML+='<p>Hoje o produto está mais barato<p>'
+                    res.innerHTML+=`<p>O preço diminuiu ${(valor-pago).toLocaleString('pt-BR',{style:'currency', currency:'BRL'})} em relação ao preço anterior</p>`
+                    porcentagem=((valor-pago)*100)/valor
+                    res.innerHTML+=`<p>Uma variação de ${porcentagem}% para baixo</p>`
+                }else{
+                    res.innerHTML='O preço do produto não sofreu alteração.'
+                }
+            }
+        }
+    </script>
+</html>

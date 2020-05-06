@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        input{
+            width: 150px;
+            height: 70px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+    </style> 
+</head>
+<body>
+    <h1>É par ou é ímpar?</h1>
+    <input type="button" value="Clique para iniciar" onclick="carregar()"> 
+    <div id="res">
+        <p>O Resultado vai aparecer aqui...</p>
+    </div>
+</body>
+<script>
+    function carregar(){
+        var res=document.getElementById('res')
+        var n1=window.prompt(`Digite um número`)
+        if(n1.length=='' || isNaN(n1)){
+            alert('Erro!! Insira um valor')
+        }else{
+            n1=Number(n1)
+            var resposta=n1%2
+            if(resposta==0){
+                res.innerHTML=`<p>O número ${n1} que foi digitado é <strong>PAR</strong></p>` 
+            }else{
+                res.innerHTML=`<p>O número ${n1} que foi digitado é <strong>ÍMPAR</strong></p>`
+            }
+        }
+        
+    }
+</script>
+</html>

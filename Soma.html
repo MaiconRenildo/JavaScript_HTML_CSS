@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma</title>
+</head>
+    <style>
+        #soma{
+            text-align: center;
+            margin: auto;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+<body>
+    <h1>Soma de Valores</h1>
+    <p id="soma">
+        <input type="number" id="n1" > +
+        <input type="number" id="n2">
+        <input type="button" value="Soma" id='soma' onclick="somar()">  
+    </p>   
+    <section id="secao">  
+        <p>Resposta: </p>  
+    </section>   
+</body>
+    <script>
+        function somar(){
+        var n1=document.getElementById('n1')
+        var n2=document.getElementById('n2')
+        if(n1.value=='' || n2.value==''){
+            alert('Erro!! Preencha os campos corretamente')
+        }else{
+            n1=Number(n1.value)
+            n2=Number(n2.value)
+            var res=document.getElementById('secao')
+            var soma=n2+n1 
+            res.innerHTML=`Resposta: ${soma}`            
+        }
+    }
+</script>
+</html>

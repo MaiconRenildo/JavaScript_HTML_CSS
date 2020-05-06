@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando o desconto</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcular desconto</h1>
+    <input type="button" value="Desconto de 10%" id='botao' onclick="contar()">
+    <p id="res">Clique no Botão acima para iniciar</p>
+</body>
+    <script>
+        function contar(){
+            var res=document.getElementById('res')
+            var nome=window.prompt('Que produto você está comprando?')
+            var valor=window.prompt(`Quanto custa o ${nome} que você está comprando?`)
+            if(nome=='' || valor.length=='' || isNaN(valor)){
+                alert('ERRO!! Preencha os campos corretamente!!')
+            }else{
+                valor=Number(valor)
+                var desconto=valor*0.1
+                res.innerHTML=`<h2>Calculando o desconto de 10% para ${nome}...</h2>`
+                res.innerHTML+=`<p>O preço original era ${valor.toLocaleString('pt-BR',{style:'currency', currency:'BRL'})}</p>`
+
+                res.innerHTML+=`Você acaba de ganhar ${desconto.toLocaleString('pt-Br',{style:'currency',currency:'BRL'})} de desconto.`
+                
+                res.innerHTML+=`<p>No fim, você pagará ${(valor-desconto).toLocaleString('pt-BR', {style:'currency', currency:'BRL'})} no produto ${nome}.</p>` 
+            }     
+        }
+    </script>
+</html>

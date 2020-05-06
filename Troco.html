@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando o troco</title>
+    <style>
+        #botao{
+            padding: 15px;
+        }
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o troco</h1>
+    <input type="button" value="Comprar produto" id='botao' onclick="contar()">
+</body>
+    <script>
+        function contar(){
+            var nome=window.prompt('Que produto você está comprando?')
+            var valor=window.prompt(`Quanto custa o ${nome} que você está comprando?`)
+            var pago=window.prompt(`Qual valor você deu para pagar o ${nome}?`)
+            if(nome.length=='' || valor.length=='' || pago.length=='' || isNaN(valor) || isNaN(pago)){
+                alert('Erro!! Preencha os campos corretamenete')
+            }else{
+                valor=Number(valor)
+                pago=Number(pago)
+                alert(`Você comprou ${nome} que custou ${valor.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}. Deu ${pago.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} em dinheiro e recebeu ${(pago-valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'})}. `)                
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        h1,h2{
+            font-family: 'Pacifico', cursive; font-weight: normal;
+        }
+        #res{
+            display: block;
+            border-top: 10px;
+        }
+        #botao{
+            background-color: green;
+            color: white;
+            width: 60px;
+            height: 30px;
+        }
+        section{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #inicio{
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculo Fatorial</h1>
+    <p>Escreva um número (entre 1 e 21) na caixa a seguir e te mostrarei o Fatorial dele.</p>
+
+    <section>
+        Número: <input type="number" id="inicio" min="0" > <input type="button" value="Fatorial" id='botao' onclick="carregar()">  
+    </section>  
+    
+    <div id="res">
+        <p>Preencha os dados acima e aperte o botão</p>
+    </div>
+</body>
+<script>
+    
+    function  carregar(){
+        var res=document.getElementById('res')
+        var input=document.getElementById('inicio')
+        
+        if(input.value=='' || input.value<1){
+            alert('ERRO! Insira um número valido!!')
+        }else{
+            var valor=Number(input.value)
+            var i=valor
+            if(i==1){
+                res.innerHTML=`<h2>Calculando ${valor}!<h2>`
+                res.innerHTML+=` 1 x 1= <strong>${valor.toLocaleString('pt-BR')}</strong>`    
+
+            }else{
+                res.innerHTML=`<h2>Calculando ${valor}!<h2>`
+                while(i>1){
+                    res.innerHTML+=` ${i} x`
+                    valor=valor*(i-1)
+                    i-- 
+                }
+                //É necessário o toLocaleString('pt-BR') para mostrar o separador de milhar,milhões..
+                res.innerHTML+=` 1 = <strong>${valor.toLocaleString('pt-BR')}</strong>`                  
+            }            
+        }
+        input.value=''
+        input.focus()
+    }
+</script>
+</html>
+
