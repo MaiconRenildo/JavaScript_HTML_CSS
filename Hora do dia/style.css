@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+#secao{
+    width: 500px;
+    margin: auto;
+    background-color:white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 15px black;
+    text-align: center;
+    padding-top: 3px;
+    
+}
+h1{
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+    font-family: sans-serif;
+
+}
+body{
+    background-color: rgba(89, 155, 241, 0.644);
+    font-size: 14pt;
+}
+footer{
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 15pt;
+}
+#secao p{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 20pt;
+
+}
+#imagem{
+    margin-top: 0px;
+}
