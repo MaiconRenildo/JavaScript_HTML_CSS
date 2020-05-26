@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu 2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            width: 100%;
+            /*Fixa todo o conteúdo dele na posição*/
+            position: fixed;
+            /*CENTRALIZA O CONTEUDO INTERNO*/ 
+            display: flex;
+            justify-content: center;
+        }
+        .ul-principal{
+            /*Ocupa 90% da largura*/
+            width: 90%;
+            height: 25px;
+            /*Defini a aultura da linha*/
+            line-height: 25px;
+            /*Defini a cor do menu*/
+            background-color: seagreen;           
+            /*COLOCA O CONTEUDO INTERNO LADO A LADO*/
+            display: flex;
+            /*IGUALA OS ESPAÇOS DOS ELEMENTOS INTERNOS(.li-principal)*/
+            justify-content: space-around;
+        }
+        /*DETALHES DOS ELEMENTOS PRINCIPAIS DO MENU*/
+        .li-principal{
+            background-color: seagreen;
+            list-style: none;
+        }
+        /*DETALHES DO SUB-MENU*/
+        .sub-menu li{
+            background-color: seagreen;
+            text-align: center;
+            list-style: none;
+        }
+        .sub-menu li a{
+            /*OBS: Normalmente os links vêm com desplay inline. Quando for necessário, usar display:block;*/
+            padding:0px 3px 0px 3px;
+        }
+        /*DETALHES DOS LINKS*/
+        .li-principal a{
+            text-decoration: none;
+            color: whitesmoke;
+            padding:0px 3px 0px 3px;
+        }
+        /*DISPLAY DO SUB-MENU*/
+        .sub-menu{
+            display: none;
+        }
+        /*HOVER*/
+        .li-principal li:hover, /*Abrange os itens do sub-menu*/
+        .li-principal:hover {   /*Abrange os itens do menu*/
+            background-color: gray;
+        }     
+        /*HOVER DO li-contato -> #li-contato aponta para o próximo ul*/
+        #li-contato:hover > ul{
+            display: block;
+        }
+        /*Hover do li-curriculo -> # li-curriculo aponta para o próximo ul*/
+        #li-curriculo:hover > ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="ul-principal">
+            <li class="li-principal"><a href="">Home</a></li>
+
+            <li class="li-principal" id="li-contato">
+                <a href="#">Contato</a>
+                <ul class="sub-menu" >
+                    <li><a href="#">link1</a></li>
+                    <li><a href="#">link2</a></li>
+                    <li><a href="#">link3</a></li>
+                    <li><a href="#">link4</a></li>
+                </ul>
+            </li>
+
+            <li class="li-principal" id="li-curriculo">
+                <a href="">Currículo</a>
+                <ul class="sub-menu" >
+                    <li><a href="#">link1</a></li>
+                    <li><a href="#">link2</a></li>
+                    <li><a href="#">link3</a></li>
+                    <li><a href="#">link4</a></li>
+                </ul>
+            </li>
+
+            <li class="li-principal"><a href="">Sobre</a></li>
+
+        </ul>
+    </nav>
+</body>
+</html>

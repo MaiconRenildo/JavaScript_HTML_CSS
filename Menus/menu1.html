@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu 1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(17, 50, 110);
+        }
+        nav{
+            width: 90%;
+            margin: auto; /*CENTRALIZA*/
+            background-color: whitesmoke;
+        }
+        nav ul{
+            display: flex;/*OS ELEMENTOS FICAM EM LINHA*/
+            justify-content: space-around;/*Dá um espaçamento igual entre todos os elementos do menu*/
+            padding: 5px;
+            list-style: none;
+        }
+        nav ul li a{
+            text-decoration: none;
+            background-color: whitesmoke;
+            padding: 2px;
+            color: rgb(2, 2, 31);
+        }
+        /*ANIMAÇÃO*/
+        nav ul li a:hover{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Portifólio</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
