@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        /*Fixa o header*/
+        header{
+            position: fixed;
+        }
+        /*Posiciona o ícone do menu*/
+        label{
+            position: absolute;
+            padding: 1em;
+            z-index: 1;
+        }
+        label img{
+            width: 40px;
+            height: 40px; 
+        }
+        /*Some com o check*/
+        #check{
+            display: none;
+        }
+        /*Edição do menu*/
+        nav{
+            width: 360px;
+            height: 100vh;
+            padding-top: calc( 40px + 4vh);
+            font-size: 20px;
+            background-color: rgba(16,16,16,.1);
+            position: relative;
+            /*Só funciona se for usado o transform*/
+            transition: all 0.5s;
+            left: -360px;
+        }
+        input[type="checkbox"]:checked~nav{
+            transform: translateX(360px);
+        }
+        nav a{
+            text-decoration: none;
+            color: whitesmoke;
+            /*Necessário para que cada link ocupe 100% do espaço*/
+            display: block;
+            padding: 1em 0vh 1em 2vh;
+        }
+        nav ul{
+            position: absolute;
+            list-style: none;
+            width: 100%;
+        }
+        /*Faz o sub-menu sobrepor o menu*/
+        #li-novidades{
+            position: relative;
+        }
+        #li-novidades ul{
+            position: absolute;
+            left: 20px;
+        }
+        /*Some com o sub-menu*/
+        nav ul li ul{         
+            display: none;
+        }
+        /*HOVER e ACTIVE  (Nesta sequência necessariamente)*/
+        nav a:hover,
+        nav a:active{
+            background-color: rgba(176,224,230,1); 
+            color: black;
+        }
+        #li-novidades:hover > ul,
+        #li-novidades:active > ul{
+            display: block;
+            background-color: rgba(176,224,230,.5);
+        }
+        
+    </style>
+<body>
+    <header>
+        <input type="checkbox" name="checkbox" id="check">
+            <label for="check">
+                <img src="icone.png" alt="icone-menu">
+            </label>
+
+            <nav>
+                <ul>
+                    <li class="menu"><a href="https://globoesporte.globo.com/">Home</a></li>
+                    <li class='menu' id="li-novidades">
+                        <a href="">Novidades</a>
+                        <ul>
+                            <li><a href="">Link1</a></li>
+                            <li><a href="">Link1</a></li>
+                            <li><a href="">Link1</a></li>
+                            <li><a href="">Link1</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="menu" ><a href="">Tutoriais</a></li>
+                    <li class="menu" ><a href="">Contato</a></li>
+                    <li class="menu"><a href="">Sobre</a></li>
+                </ul>
+            </nav>        
+    </header>
+    
+</body>
+</html>
