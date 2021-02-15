@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *:before,
+    *:after{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color:#81ecec;
+    }
+    .menu{
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+    }
+    .hamburguer{
+      display: block;
+      background-color: #000;
+      width: 30px;
+      height: 2px;
+      position: relative;
+      /*Deixa no meio do círculo*/
+      top: 29px;
+      left: 15px;
+      transition: 1s;
+    }
+    .hamburguer:before,
+    .hamburguer:after{
+      background-color: #000;
+      /*O content é necessário*/
+      content: "";
+      display: block;
+      width: 100%; /*100% da largura do hamburguer*/
+      height: 100%;/*100% da altura do hamburguer*/
+      position: absolute;
+      transition: 1s;
+    }
+    .hamburguer:before{
+      top: -10px;
+    }
+    .hamburguer:after{
+      bottom: -10px;
+    }
+    #check:checked ~ label .hamburguer{
+      transform: rotate(45deg);
+      background-color: green;
+    }
+    #check:checked ~ label .hamburguer::before{
+      transform: rotate(90deg);
+      top: 0;
+    }
+    #check:checked ~ label .hamburguer::after{
+      transform: rotate(90deg);
+      bottom: 0;
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+  <input type="checkbox" name="" id="check">
+
+  <label for="check">
+    <div class="menu">
+      <span class="hamburguer"></span>
+    </div>
+  </label>
+
+</body>
+</html>

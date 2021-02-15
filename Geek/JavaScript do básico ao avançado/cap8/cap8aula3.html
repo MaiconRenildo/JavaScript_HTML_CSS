@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Inline</title>
+</head>
+<body onclick="mudarCor()">
+  <button onclick="mostrarAlerta();">Por favor, clique em mim</button  >
+  <br><br>
+  <span class="info" onmouseover="mudarTexto(this)"><b>Atenção!</b> Não clique no botão acima!</span>
+  
+  <br><br>
+  <input type="text" onkeyup="escreverTexto(this)">
+  <br><br> 
+  <span id="Texto"></span>
+
+  <script src="js/cap8aula3.js"></script>
+</body>
+</html>
